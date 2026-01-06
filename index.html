@@ -1,157 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YAYASAN MANHALUL MA'ARIF DAREK</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YAYASAN MANHALUL MA'ARIF</title>
 
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "Poppins", sans-serif;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
 
-        body {
-            height: 100vh;
-            width: 100%;
-            overflow: hidden;
-            position: relative;
-            background: url('https://images.unsplash.com/photo-1494522358652-f30e61a60313') center/cover no-repeat;
-        }
+      body {
+        height: 100vh;
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+        background: url("https://images.unsplash.com/photo-1494522358652-f30e61a60313")
+          center/cover no-repeat;
+      }
 
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 55%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(1px);
+        clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
+        display: flex;
+        align-items: center;
+        padding-left: 8%;
+      }
+
+      .content {
+        max-width: 450px;
+        color: #fff;
+        animation: fadeIn 1s ease forwards;
+      }
+
+      .content h1 {
+        font-size: 3rem;
+        line-height: 1.2;
+        margin-bottom: 20px;
+        font-weight: 700;
+      }
+
+      .content p {
+        opacity: 0.85;
+        font-size: 1.1rem;
+        margin-bottom: 35px;
+      }
+
+      .form-box {
+        display: flex;
+        gap: 10px;
+      }
+
+      .form-box input {
+        width: 100%;
+        padding: 16px;
+        border-radius: 6px;
+        border: none;
+        outline: none;
+        font-size: 1rem;
+      }
+
+      .form-box button {
+        background: #255355;
+        padding: 0 22px;
+        border: none;
+        border-radius: 6px;
+        color: #fff;
+        cursor: pointer;
+        font-size: 0.95rem;
+        font-weight: 600;
+        transition: 0.25s;
+      }
+
+      .form-box button:hover {
+        background: #183f40;
+      }
+
+      .social {
+        position: absolute;
+        right: 40px;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+      }
+
+      .social a {
+        height: 52px;
+        width: 52px;
+        border-radius: 50%;
+        background: rgba(0, 0, 0, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        transition: 0.2s;
+      }
+
+      .social a:hover {
+        background: rgba(0, 0, 0, 0.9);
+      }
+
+      .social svg {
+        width: 22px;
+        stroke: #fff;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 900px) {
         .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 55%;
-            height: 100%;
-            background: rgba(0,0,0,0.85);
-            backdrop-filter: blur(1px);
-            clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
-            display: flex;
-            align-items: center;
-            padding-left: 8%;
-        }
-
-        .content {
-            max-width: 450px;
-            color: #fff;
-            animation: fadeIn 1s ease forwards;
-        }
-
-        .content h1 {
-            font-size: 3rem;
-            line-height: 1.2;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-
-        .content p {
-            opacity: .85;
-            font-size: 1.1rem;
-            margin-bottom: 35px;
-        }
-
-        .form-box {
-            display: flex;
-            gap: 10px;
-        }
-
-        .form-box input {
-            width: 100%;
-            padding: 16px;
-            border-radius: 6px;
-            border: none;
-            outline: none;
-            font-size: 1rem;
-        }
-
-        .form-box button {
-            background: #255355;
-            padding: 0 22px;
-            border: none;
-            border-radius: 6px;
-            color: #fff;
-            cursor: pointer;
-            font-size: .95rem;
-            font-weight: 600;
-            transition: .25s;
-        }
-
-        .form-box button:hover {
-            background: #183f40;
+          width: 100%;
+          clip-path: none;
+          padding: 40px;
+          justify-content: center;
         }
 
         .social {
-            position: absolute;
-            right: 40px;
-            top: 50%;
-            transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
+          display: none;
         }
-
-        .social a {
-            height: 52px;
-            width: 52px;
-            border-radius: 50%;
-            background: rgba(0,0,0,0.7);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-decoration: none;
-            transition: .2s;
-        }
-
-        .social a:hover {
-            background: rgba(0,0,0,0.9);
-        }
-
-        .social svg {
-            width: 22px;
-            stroke: #fff;
-        }
-
-        @keyframes fadeIn {
-            from {opacity: 0; transform: translateY(40px);}
-            to {opacity: 1; transform: translateY(0);}
-        }
-
-        @media (max-width:900px) {
-            .overlay {
-                width: 100%;
-                clip-path: none;
-                padding: 40px;
-                justify-content: center;
-            }
-
-            .social { display: none; }
-        }
+      }
     </style>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <div class="overlay">
-        <div class="content">
-            <h1>YAYASAN MANHALUL<br>MA'ARIF DAREK</h1>
-            <p>Website sedang dalam proses pembangunan. Masukkan email untuk mendapatkan pemberitahuan saat selesai.</p>
-            
-            <div class="form-box">
-                <input type="email" placeholder="Enter email address...">
-                <button>NOTIFY ME!</button>
-            </div>
+      <div class="content">
+        <h1>YAYASAN MANHALUL<br />MA'ARIF DAREK</h1>
+        <p>
+          Website sedang dalam proses pembangunan. Masukkan email untuk
+          mendapatkan pemberitahuan saat selesai.
+        </p>
+
+        <div class="form-box">
+          <input type="email" placeholder="Enter email address..." />
+          <button>NOTIFY ME!</button>
         </div>
+      </div>
     </div>
 
     <div class="social">
-        <a href="#"><svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path d="M8 19c11 0 14-9 14-14v-.7A9.84 9.84 0 0024 2a9.72 9.72 0 01-2.8.8A4.92 4.92 0 0023.3.4a9.83 9.83 0 01-3.1 1.2A4.92 4.92 0 0016.6 0c-3.2 0-5.6 3-4.9 6.1A13.94 13.94 0 011.7.9 4.92 4.92 0 003.2 7a4.86 4.86 0 01-2.2-.6v.1c0 2.4 1.7 4.3 4 4.8A4.92 4.92 0 01.9 12a4.93 4.93 0 004.6 3.3A9.87 9.87 0 010 18.5 13.87 13.87 0 007.5 21"></path></svg></a>
-        <a href="#"><svg fill="none" viewBox="0 0 24 24" stroke-width="2"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path></svg></a>
-        <a href="#"><svg fill="none" viewBox="0 0 24 24" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="4"/><circle cx="12" cy="12" r="3"/><path d="M16.5 7.5h.01"></path></svg></a>
+      <a href="#"
+        ><svg fill="none" viewBox="0 0 24 24" stroke-width="2">
+          <path
+            d="M8 19c11 0 14-9 14-14v-.7A9.84 9.84 0 0024 2a9.72 9.72 0 01-2.8.8A4.92 4.92 0 0023.3.4a9.83 9.83 0 01-3.1 1.2A4.92 4.92 0 0016.6 0c-3.2 0-5.6 3-4.9 6.1A13.94 13.94 0 011.7.9 4.92 4.92 0 003.2 7a4.86 4.86 0 01-2.2-.6v.1c0 2.4 1.7 4.3 4 4.8A4.92 4.92 0 01.9 12a4.93 4.93 0 004.6 3.3A9.87 9.87 0 010 18.5 13.87 13.87 0 007.5 21"
+          ></path></svg
+      ></a>
+      <a href="#"
+        ><svg fill="none" viewBox="0 0 24 24" stroke-width="2">
+          <path
+            d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"
+          ></path></svg
+      ></a>
+      <a href="#"
+        ><svg fill="none" viewBox="0 0 24 24" stroke-width="2">
+          <rect width="18" height="18" x="3" y="3" rx="4" />
+          <circle cx="12" cy="12" r="3" />
+          <path d="M16.5 7.5h.01"></path></svg
+      ></a>
     </div>
-
-</body>
+  </body>
 </html>
